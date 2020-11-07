@@ -5,6 +5,7 @@
       <div class="vcp-progress-played" :style="{width: progress + '%'}">
         <div class="thumb-drag" @touchstart="startDrag" @mousedown="startDrag" ref="thumb"></div>
       </div>
+      <div class="vcp-progress-ranged" :style="{left: startRange + 'px', width: rangeSize + 'px'}"></div>
     </div>
   </div>
 </template>
@@ -24,7 +25,9 @@ export default {
   data () {
     return {
       progress: 0.00,
-      bufferProgress: 0.00
+      bufferProgress: 0.00,
+      startRange: 100,
+      rangeSize: 200
     }
   },
   created () {
@@ -153,7 +156,8 @@ export default {
 }
 
 .vcp-progress-loaded,
-.vcp-progress-played{
+.vcp-progress-played,
+.vcp-progress-ranged{
   position: absolute;
   top: 0;
   left: 0;
@@ -163,6 +167,10 @@ export default {
 }
 .vcp-progress-loaded {
   transition: width .1s cubic-bezier(0.4,0.0,1,1);
+}
+.vcp-progress-ranged{
+  width: 0;
+  background-color: #009600;
 }
 .vcp-progress-played{
   width: 0;
