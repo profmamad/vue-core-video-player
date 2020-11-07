@@ -1,6 +1,6 @@
 <template>
   <div class="vcp-dashboard" autoplay v-show="show" ref="dashboard">
-    <Progress />
+    <Progress :startRange=startRange :rangeSize=rangeSize />
     <Controls :muted="muted" />
   </div>
 </template>
@@ -26,7 +26,9 @@ export default {
   },
   props: {
     controls: [Boolean, String],
-    muted: Boolean
+    muted: Boolean,
+    startRange: Number,
+    rangeSize: Number
   },
   data () {
     return {

@@ -8,7 +8,7 @@
       :playsinline="playsinline"
       :src="source"></video>
     <Layers />
-    <Dashboard v-if="!isMobile" :controls="controls" :muted="muted" />
+    <Dashboard v-if="!isMobile" :controls="controls" :muted="muted" :startRange=startRange :rangeSize=rangeSize />
     <MobileDashboard v-if="isMobile" :controls="controls" :muted="muted" />
   </div>
 </template>
@@ -69,7 +69,9 @@ export default {
     viewCore: {
       type: Array,
       default: () => []
-    }
+    },
+    startRange: Number,
+    rangeSize: Number
   },
 
   data () {

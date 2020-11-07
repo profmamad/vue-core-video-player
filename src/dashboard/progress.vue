@@ -19,15 +19,15 @@ import { drag } from '../helper/dom'
 export default {
   name: 'Progress',
   props: {
-    visible: Boolean
+    visible: Boolean,
+    startRange: Number,
+    rangeSize: Number
   },
   mixins: [coreMixins],
   data () {
     return {
       progress: 0.00,
-      bufferProgress: 0.00,
-      startRange: 100,
-      rangeSize: 200
+      bufferProgress: 0.00
     }
   },
   created () {
