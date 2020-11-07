@@ -6868,15 +6868,17 @@ var dashboardvue_type_template_id_ce9af6ac_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/dashboard/dashboard.vue?vue&type=template&id=ce9af6ac&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2519692a-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/dashboard/progress.vue?vue&type=template&id=712868a9&
-var progressvue_type_template_id_712868a9_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"input",staticClass:"vcp-progress-hover",on:{"click":_vm.seek}},[_c('div',{ref:"container",staticClass:"vcp-progress"},[_c('div',{staticClass:"vcp-progress-loaded",style:({width: _vm.bufferProgress + '%'})}),_c('div',{staticClass:"vcp-progress-played",style:({width: _vm.progress + '%'})},[_c('div',{ref:"thumb",staticClass:"thumb-drag",on:{"touchstart":_vm.startDrag,"mousedown":_vm.startDrag}})]),_c('div',{staticClass:"vcp-progress-ranged",style:({left: _vm.startRange + 'px', width: _vm.rangeSize + 'px'})})])])}
-var progressvue_type_template_id_712868a9_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2519692a-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/dashboard/progress.vue?vue&type=template&id=14940dec&
+var progressvue_type_template_id_14940dec_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"input",staticClass:"vcp-progress-hover",on:{"click":_vm.seek}},[_c('div',{ref:"container",staticClass:"vcp-progress"},[_c('div',{staticClass:"vcp-progress-loaded",style:({width: _vm.bufferProgress + '%'})}),_c('div',{staticClass:"vcp-progress-played",style:({width: _vm.progress + '%'})},[_c('div',{ref:"thumb",staticClass:"thumb-drag",on:{"touchstart":_vm.startDrag,"mousedown":_vm.startDrag}})]),(_vm.bufferProgress > 0)?[_c('div',{staticClass:"vcp-progress-ranged",style:({left: _vm.startPoint + '%', width: _vm.endPoint + '%'})})]:_vm._e()],2)])}
+var progressvue_type_template_id_14940dec_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/dashboard/progress.vue?vue&type=template&id=712868a9&
+// CONCATENATED MODULE: ./src/dashboard/progress.vue?vue&type=template&id=14940dec&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/dashboard/progress.vue?vue&type=script&lang=js&
 
+//
+//
 //
 //
 //
@@ -6906,6 +6908,24 @@ var progressvue_type_template_id_712868a9_staticRenderFns = []
       progress: 0.00,
       bufferProgress: 0.00
     };
+  },
+  computed: {
+    startPoint: function startPoint() {
+      if (this.$player) {
+        var duration = this.$player.getDuration();
+        return (this.startRange / duration * 100).toFixed(2);
+      }
+
+      return 0;
+    },
+    endPoint: function endPoint() {
+      if (this.$player) {
+        var duration = this.$player.getDuration();
+        return ((this.rangeSize - this.startRange) / duration * 100).toFixed(2);
+      }
+
+      return 0;
+    }
   },
   created: function created() {
     var _this = this;
@@ -7132,8 +7152,8 @@ function normalizeComponent (
 
 var component = normalizeComponent(
   dashboard_progressvue_type_script_lang_js_,
-  progressvue_type_template_id_712868a9_render,
-  progressvue_type_template_id_712868a9_staticRenderFns,
+  progressvue_type_template_id_14940dec_render,
+  progressvue_type_template_id_14940dec_staticRenderFns,
   false,
   null,
   null,
