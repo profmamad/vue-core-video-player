@@ -5,7 +5,9 @@
       <div class="vcp-progress-played" :style="{width: progress + '%'}">
         <div class="thumb-drag" @touchstart="startDrag" @mousedown="startDrag" ref="thumb"></div>
       </div>
-      <div class="vcp-progress-ranged" :style="{left: startRange + 'px', width: rangeSize + 'px'}"></div>
+      <template v-if="bufferProgress > 0">
+      <div class="vcp-progress-ranged" :style="{left: startPoint + '%', width: endPoint + '%'}"></div>
+      </template>
     </div>
   </div>
 </template>
@@ -28,6 +30,22 @@ export default {
     return {
       progress: 0.00,
       bufferProgress: 0.00
+    }
+  },
+  computed: {
+    startPoint: function () {
+      if (this.$player) {
+        const duration = this.$player.getDuration()
+        return (this.startRange / duration * 100).toFixed(2)
+      }
+      return 0
+    },
+    endPoint: function () {
+      if (this.$player) {
+        const duration = this.$player.getDuration()
+        return ((this.rangeSize - this.startRange) / duration * 100).toFixed(2)
+      }
+      return 0
     }
   },
   created () {
