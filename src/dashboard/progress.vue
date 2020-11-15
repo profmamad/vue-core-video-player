@@ -22,8 +22,8 @@ export default {
   name: 'Progress',
   props: {
     visible: Boolean,
-    startRange: Number,
-    rangeSize: Number
+    startRange: String,
+    rangeSize: String
   },
   mixins: [coreMixins],
   data () {
@@ -36,14 +36,14 @@ export default {
     startPoint: function () {
       if (this.$player) {
         const duration = this.$player.getDuration()
-        return (this.startRange / duration * 100).toFixed(2)
+        return (parseFloat(this.startRange) / duration * 100).toFixed(2)
       }
       return 0
     },
     endPoint: function () {
       if (this.$player) {
         const duration = this.$player.getDuration()
-        return ((this.rangeSize - this.startRange) / duration * 100).toFixed(2)
+        return ((this.rangeSize - parseFloat(this.startRange)) / duration * 100).toFixed(2)
       }
       return 0
     }

@@ -27,8 +27,8 @@ export default {
   props: {
     controls: [Boolean, String],
     muted: Boolean,
-    startRange: Number,
-    rangeSize: Number
+    startRange: String,
+    rangeSize: String
   },
   data () {
     return {

@@ -70,8 +70,8 @@ export default {
       type: Array,
       default: () => []
     },
-    startRange: Number,
-    rangeSize: Number
+    startRange: String,
+    rangeSize: String
   },
 
   data () {
